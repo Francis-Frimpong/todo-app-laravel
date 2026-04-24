@@ -2,14 +2,47 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Todo;
+use Illuminate\Http\Request;
 
 class TodoController extends Controller
 {
     public function index()
     {
         $todos = Todo::all();
-        return view('index', compact('todos'));
+        return view('todos.index', compact('todos'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|min:3'
+        ]);
+
+        Todo::create([
+            'title' => $request->title,
+            'completed' => false
+        ]);
+        return redirect('/todos');
+    }
+
+    public function update($id)
+    {
+        $todo = Todo::findOrFail($id);
+
+        $todo->completed = true;
+
+        $todo->save();
+
+        return redirect('/todos');
+
+    }
+
+    public function destroy($id)
+    {
+        $todo = Todo::findOrFail($id);
+        $todo->delete();
+
+        return redirect('/todos');
     }
 }
