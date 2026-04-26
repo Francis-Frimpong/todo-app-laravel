@@ -51,4 +51,10 @@ class TodoController extends Controller
     {
         return view('todos.create');
     }
+
+    public function show($id)
+    {
+        $todo = Todo::findorFail($id);
+        return view('todos.show', compact('todo'));
+    }
 }

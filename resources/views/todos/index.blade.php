@@ -16,7 +16,9 @@
                 <li class="list-group-item d-flex justify-content-between align-items-center">
 
                     <span class="{{ $todo->completed ? 'text-decoration-line-through text-muted' : '' }}">
-                        {{ $todo->title }}
+                        <a href="/todos/{{ $todo->id }}">
+                            {{ $todo->title }}
+                        </a>
                     </span>
 
                     <div class="d-flex gap-2">
