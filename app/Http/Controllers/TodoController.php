@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Todo;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class TodoController extends Controller
 {
@@ -44,5 +45,10 @@ class TodoController extends Controller
         $todo->delete();
 
         return redirect('/todos');
+    }
+
+    public function create()
+    {
+        return view('todos.create');
     }
 }

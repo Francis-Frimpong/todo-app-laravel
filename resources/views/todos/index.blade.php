@@ -10,15 +10,6 @@
     
         <h2 class="text-center mb-4">My Todo List</h2>
 
-        <!-- FORM -->
-        <form method="POST" action="/todos" class="d-flex gap-2 mb-4">
-            @csrf
-
-            <input type="text" name="title" class="form-control" placeholder="Enter todo">
-
-            <button class="btn btn-primary">Add</button>
-        </form>
-
         <!-- LIST -->
         <ul class="list-group">
             @foreach($todos as $todo)
@@ -51,5 +42,7 @@
         </ul>
 
     </div>
+
+    <a href="/todos/create" class="btn btn-primary mb-3">+ New Todo</a>
 </body>
 </html>
