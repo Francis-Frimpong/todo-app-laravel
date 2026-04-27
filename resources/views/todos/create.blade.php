@@ -9,7 +9,7 @@
         <div class="container mt-5" style="max-width: 600px;">
             <h2 class="mb-4">Create Todo</h2>
 
-            <form method="POST" action="/todos">
+            <form method="POST" action="{{ route('todos.store') }}">
                 @csrf
 
                 <input type="text" name="title" class="form-control mb-3" placeholder="Enter todo">
@@ -17,7 +17,7 @@
                 <button class="btn btn-primary">Save</button>
             </form>
 
-            <a href="/todos" class="btn btn-link mt-3">Back</a>
+            <a href="{{ route('todos.index') }}" class="btn btn-link mt-3">Back</a>
         </div>
   
 </body>

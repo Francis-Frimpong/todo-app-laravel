@@ -16,7 +16,7 @@
                 <li class="list-group-item d-flex justify-content-between align-items-center">
 
                     <span class="{{ $todo->completed ? 'text-decoration-line-through text-muted' : '' }}">
-                        <a href="/todos/{{ $todo->id }}">
+                        <a href="{{ route('todos.show', $todo->id) }}">
                             {{ $todo->title }}
                         </a>
                     </span>
@@ -24,14 +24,14 @@
                     <div class="d-flex gap-2">
 
                         @if(!$todo->completed)
-                            <form method="POST" action="/todos/{{ $todo->id }}">
+                            <form method="POST" action="{{ route('todos.update', $todo->id) }}">
                                 @csrf
                                 @method('PATCH')
                                 <button class="btn btn-success btn-sm">Done</button>
                             </form>
                         @endif
 
-                        <form method="POST" action="/todos/{{ $todo->id }}">
+                        <form method="POST" action="{{ route('todos.destroy', $todo->id) }}">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger btn-sm">Delete</button>
@@ -45,6 +45,6 @@
 
     </div>
 
-    <a href="/todos/create" class="btn btn-primary mb-3">+ New Todo</a>
+    <a href="{{ route('todos.create') }}" class="btn btn-primary mb-3">+ New Todo</a>
 </body>
 </html>

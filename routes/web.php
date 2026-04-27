@@ -3,13 +3,15 @@
 use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/todos', [TodoController::class, 'index']);
+Route::get('/todos', [TodoController::class, 'index'])->name('todos.index');
 
-Route::get('/todos/create', [TodoController::class, 'create']);
-Route::get('/todos/{id}', [TodoController::class, 'show']);
+Route::get('/todos/create', [TodoController::class, 'create'])->name('todos.create');
 
-Route::post('/todos', [TodoController::class, 'store']);
+Route::post('/todos', [TodoController::class, 'store'])->name('todos.store');
 
-Route::patch('/todos/{id}', [TodoController::class, 'update']);
+Route::get('/todos/{id}', [TodoController::class, 'show'])->name('todos.show');
 
-Route::delete('/todos/{id}', [TodoController::class, 'destroy']);
+
+Route::patch('/todos/{id}', [TodoController::class, 'update'])->name('todos.update');
+
+Route::delete('/todos/{id}', [TodoController::class, 'destroy'])->name('todos.destroy');

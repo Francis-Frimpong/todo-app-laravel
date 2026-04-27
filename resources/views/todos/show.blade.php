@@ -17,7 +17,7 @@
             @endif
         </p>
 
-        <a href="/todos" class="btn btn-link">Back</a>
+        <a href="{{ route('todos.index'}" class="btn btn-link">Back</a>
     </div>
 </body>
 </html>
